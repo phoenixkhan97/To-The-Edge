@@ -1,1 +1,30 @@
+body{
+background-color: black;
+}
 
+h1{
+color: red;
+font-size: 75px;
+text-align: center;
+align-items: center;
+justify-content: center;
+
+
+}
+
+#restart{
+color:red;
+padding:20px 50px;
+justify-content: center;
+align-items:center;
+
+
+}
+
+#start{
+
+}
+
+title{
+
+}
