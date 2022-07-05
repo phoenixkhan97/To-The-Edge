@@ -2,6 +2,13 @@ body{
 background-color: black;
 }
 
+#board{
+padding:2px;
+border: white solid 5px;
+margin:30px;
+
+}
+
 h1{
 color: red;
 font-size: 75px;
@@ -11,18 +18,29 @@ justify-content: center;
 
 
 }
+img{
+    width:685px;
+    height:400px
+}
 
-#restart{
+#restart,#start{
 color:red;
-padding:20px 50px;
 justify-content: center;
 align-items:center;
+margin:auto;
+display:flex;
+border-radius:30%;
+
 
 
 }
 
-#start{
+#restart{
+padding:15px 35px;
+}
 
+#start{
+padding:15px 25px;
 }
 
 title{
