@@ -31,6 +31,9 @@ To The Edge is a simple sidescroller game that utilizes HTML, CSS and Javascript
 #### Getting The Idea/Started
 https://www.youtube.com/watch?v=7JtLHJbm0kA
 
+#### Gravity
+https://www.w3schools.com/graphics/game_gravity.asp
+
 https://www.youtube.com/watch?v=4q2vvZn5aoo&t=1090s <You can use addEventListeners without a document???>
 
 #### Keybord to JS Connection
