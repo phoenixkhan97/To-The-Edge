@@ -1,16 +1,19 @@
 body{
-background-color: black;
+background-color: #212124;
 }
 
-#board{
-padding:2px;
+#canvas{
 border: white solid 5px;
-margin:30px;
+margin:auto;
+align-items:center;
+justify-content: center;
+display:flex;
+
 
 }
 
 h1{
-color: red;
+color: #5757eb;
 font-size: 75px;
 text-align: center;
 align-items: center;
@@ -18,18 +21,17 @@ justify-content: center;
 
 
 }
-img{
-    width:685px;
-    height:400px
-}
+
 
 #restart,#start{
-color:red;
+background-color:#5757eb;
+color:aqua;
 justify-content: center;
 align-items:center;
 margin:auto;
 display:flex;
 border-radius:30%;
+border: white solid 2px;
 
 
 
@@ -41,8 +43,4 @@ padding:15px 35px;
 
 #start{
 padding:15px 25px;
-}
-
-title{
-
 }
