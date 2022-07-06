@@ -27,6 +27,11 @@ To The Edge is a simple sidescroller game that utilizes HTML, CSS and Javascript
 
 
 ## Credits
+
+#### Getting The Idea/Started
 https://www.youtube.com/watch?v=7JtLHJbm0kA
 
-https://www.youtube.com/watch?v=4q2vvZn5aoo&t=1090s
+https://www.youtube.com/watch?v=4q2vvZn5aoo&t=1090s <You can use addEventListeners without a document???>
+
+#### Keybord to JS Connection
+https://developer.mozilla.org/en-US/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard

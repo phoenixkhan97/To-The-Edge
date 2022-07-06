@@ -9,11 +9,11 @@ const gravity = 0.5
 class Wizard{
     constructor(){
         this.axis = {
-            x:300,
-            y:160
+            x:200,
+            y:200
         }
         this.width = 50
-        this.height = 50
+        this.height = 60
 
         this.velocity = {
             x:0,
@@ -28,12 +28,14 @@ class Wizard{
 
     playerChange(){
         this.axis.y += this.velocity.y
+        this.axis.x += this.velocity.x
         this.draw()
         if(this.axis.y + this.height + this.velocity.y <= canvas.height)
-
         this.velocity.y += gravity
+
         else
-        this.velocity.y = 0
+
+        this.velocity.y = 0 
     }
 }
 
@@ -50,22 +52,45 @@ fallAnimation = () => {
 }
 
 fallAnimation()
-//Player
-
-//this.position = {
-//    x:
-//    y:
-//}
 
 
-//this.width
-//this.height
 
-//Gravity
+addEventListener(`keydown`,({ keyCode }) =>{
+    switch(keyCode){
+        case 65:
+            console.log(`left`)
+            player.velocity.x = -4
+        break;
+        case 87:
+            console.log(`up`)
+            player.velocity.y -= 10
+        break;
+        case 83:
+            console.log(`down`)
+        break;
+        case 68:
+            console.log(`right`)
+            player.velocity.x = 4
+        break;
+    }
+})
 
-//velocity
-//implementing x and y axis to velocity and positioning
-
-
-//Player Movement
-//WAD movement
+addEventListener(`keyup`,({ keyCode }) =>{
+    switch(keyCode){
+        case 65:
+            console.log(`left`)
+            player.velocity.x = 0
+        break;
+        case 87:
+            console.log(`up`)
+            player.velocity.y -= 1
+        break;
+        case 83:
+            console.log(`down`)
+        break;
+        case 68:
+            console.log(`right`)
+            player.velocity.x = 0
+        break;
+    }
+})

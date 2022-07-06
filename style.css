@@ -6,8 +6,10 @@ background-color: #212124;
 border: white solid 5px;
 margin:auto;
 align-items:center;
-justify-content: center;
+justify-content:center;
 display:flex;
+width:550px;
+height:400px
 
 
 }
