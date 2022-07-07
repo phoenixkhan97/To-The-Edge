@@ -1,9 +1,11 @@
 
-const canvas = document.getElementById("canvas")
 
+const canvas = document.getElementById("canvas")
+const restartGame = document.getElementById("restart")
 const c = canvas.getContext(`2d`)
-canvas.height = innerHeight
-canvas.width = innerWidth
+import wizard from '/pics/steven2.png'
+canvas.height = 600
+canvas.width = 1024
 const gravity = 0.4
 
 // preload = () =>{
@@ -18,18 +20,20 @@ class Wizard{
             x:50,
             y:200
         }
-        this.width =40
-        this.height = 60
+        this.width = 40
+        this.height = 40
 
         this.velocity = {
             x:0,
             y:0
         }
+        this.image = createImage(wizard)
+       
     }
 
     draw(){
-        c.fillStyle = 'green'
-        c.fillRect(this.axis.x,this.axis.y,this.width,this.height)
+        c.drawImage(this.image, this.axis.x, this.axis.y)
+        
     }
 
     playerChanges(){
@@ -39,12 +43,9 @@ class Wizard{
         if(this.axis.y + this.height + this.velocity.y <= canvas.height)
         this.velocity.y += gravity
 
-        else
-
-        this.velocity.y = 0 
+    
     }
 }
-
 
 const player = new Wizard();
 const movement = {
@@ -56,27 +57,28 @@ const movement = {
     }
 }
 
-
-
-
 class Platform{
     constructor({x,y}){
         this.axis = {
             x,
             y
         }
-        this.width = 200,
-        this.height = 50
+        //this.image = image
+        this.width = 500,//image.width
+        this.height = 50//image.height
     }
     draw(){
-        c.fillStyle = `blue`
+        c.fillStyle = `black`
         c.fillRect(this.axis.x, this.axis.y, this.width, this.height)
     }
 }
 
-const platforms =[new Platform({x:20,y:600}),new Platform({x:400,y:550}),new Platform({x:600,y:300}),new Platform({x:900,y:600}),new Platform({x:1200,y:300})]
-
-
+const platforms =[
+    new Platform({x:0,y:550}),
+    new Platform({x:500,y:550}),
+    new Platform({x:1600,y:550}),
+    new Platform({x:1500,y:550})]
+    
 
 
 fallAnimation = () => {
@@ -88,41 +90,41 @@ fallAnimation = () => {
     player.playerChanges()
 
 
-let scroll = 0
-
-
     if(movement.right.pressed && player.axis.x <500){
-        player.velocity.x = 4
+        player.velocity.x = 5
     }else if(movement.left.pressed && player.axis.x > 50){
-        player.velocity.x = -4
+        player.velocity.x = -5
     }
     else
     player.velocity.x = 0
 
     if(movement.right.pressed){
-        scroll += 4
+        scroll += 5
         platforms.forEach(platform =>{
-        platform.axis.x -= 4
+        platform.axis.x -= 5
         })}else if (movement.left.pressed){
         scroll = -4
         platforms.forEach(platform =>{
-        platform.axis.x += 4
+        platform.axis.x += 5
     }
     )}
 
-    if(scroll > 2000){
-        console.log(`you win`)
-    }
+    if(player.axis.x >= 2000){
+        console.log(`you win`)}
     
-
-
-    //how cell lands on platform. Not my work
+        if(player.axis.y > canvas.height){
+            console.log(`you lose`)
+        }
+    
+    //how cell lands on platform. Not my work. Credit in md
     platforms.forEach(platform =>{
         if(player.axis.y + player.height <= platform.axis.y && player.axis.y + player.height + player.velocity.y >= platform.axis.y && player.axis.x + player.width >= platform.axis.x && player.axis.x <= platform.axis.x + platform.width){
     player.velocity.y = 0
 }
-    })}
+    })
+}
 
+    
     fallAnimation()
 
 
@@ -171,6 +173,7 @@ addEventListener(`keyup`,({ keyCode }) =>{
         break;
     }
 })
+
 
 
 
