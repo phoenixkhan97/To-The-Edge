@@ -52,7 +52,7 @@ class Platform{
             x,
             y
         }
-        this.width = 500,
+        this.width = 200,
         this.height = 30
         this.image = tileImage
     }
@@ -62,11 +62,7 @@ class Platform{
     }
 }
 
-let platforms =[
-    new Platform({x:0,y:525,tileImage}),
-    new Platform({x:400,y:525, tileImage}),
-new Platform({x:800,y:325,tallImage}),new Platform({x:1400,y:425,tileImage}),
-new Platform({x:1800,y:525,tileImage}),] 
+let platforms =[] 
 
 
 let player = new Wizard();
@@ -81,9 +77,10 @@ const movement = {
 init = () =>{
 platforms =[
     new Platform({x:0,y:525,tileImage}),
-    new Platform({x:400,y:525, tileImage}),
-new Platform({x:800,y:325,tallImage}),new Platform({x:1400,y:425,tileImage}),
-new Platform({x:1800,y:525,tileImage}),] 
+new Platform({x:400,y:325,tallImage}),new Platform({x:700,y:425,tileImage}),
+new Platform({x:1000,y:225,tileImage}),new Platform({x:1350,y:125,tileImage}),
+new Platform({x:1700,y:250,tileImage}),new Platform({x:2000,y:450,tileImage}),
+new Platform({x:2150,y:450,tileImage}),new Platform({x:2300,y:450,tileImage}),new Platform({x:2450,y:450,tileImage}),new Platform({x:26000,y:450,tileImage}),] 
 
 
 player = new Wizard();
@@ -99,9 +96,9 @@ fallAnimation = () => {
 
 
     if(movement.right.pressed && player.axis.x <500){
-        player.velocity.x = 4
+        player.velocity.x = 3
     }else if((movement.left.pressed && player.axis.x > 10)||(movement.left.pressed && player.axis.x < 0)){
-        player.velocity.x = -4
+        player.velocity.x = -3
     }
     else
     player.velocity.x = 0
@@ -109,11 +106,11 @@ fallAnimation = () => {
     if(movement.right.pressed){
         scroll += 5
         platforms.forEach(platform =>{
-        platform.axis.x -= 4
+        platform.axis.x -= 3
         })}else if (movement.left.pressed && scroll > 0){
         scroll = -4
         platforms.forEach(platform =>{
-        platform.axis.x += 5
+        platform.axis.x += 3
     }
     )}
     
@@ -150,7 +147,7 @@ addEventListener(`keydown`,({ keyCode }) =>{
         break;
         case 87:
             console.log(`up`)
-            player.velocity.y -= 10
+            player.velocity.y -= 9
         break;
         case 83:
             console.log(`down`)
