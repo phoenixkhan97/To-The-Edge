@@ -60,12 +60,12 @@ const movement = {
 
 
 class Platform{
-    constructor(){
+    constructor({x,y}){
         this.axis = {
-            x:200,
-            y:550
+            x,
+            y
         }
-        this.width = 100,
+        this.width = 200,
         this.height = 50
     }
     draw(){
@@ -74,17 +74,21 @@ class Platform{
     }
 }
 
-const platform = new Platform()
-platform.draw();
+const platforms =[new Platform({x:20,y:600}),new Platform({x:400,y:550}),new Platform({x:600,y:300}),new Platform({x:900,y:600}),new Platform({x:1200,y:300})]
+
 
 
 
 fallAnimation = () => {
     requestAnimationFrame(fallAnimation)
     c.clearRect(0,0,canvas.width,canvas.height)
+    platforms.forEach(platform =>{
+        platform.draw()
+    })
     player.playerChanges()
-    platform.draw()
 
+
+let scroll = 0
 
 
     if(movement.right.pressed && player.axis.x <500){
@@ -96,18 +100,29 @@ fallAnimation = () => {
     player.velocity.x = 0
 
     if(movement.right.pressed){
+        scroll += 4
+        platforms.forEach(platform =>{
         platform.axis.x -= 4
-    }else if (movement.left.pressed){
+        })}else if (movement.left.pressed){
+        scroll = -4
+        platforms.forEach(platform =>{
         platform.axis.x += 4
     }
+    )}
+
+    if(scroll > 2000){
+        console.log(`you win`)
+    }
+    
 
 
     //how cell lands on platform. Not my work
-
+    platforms.forEach(platform =>{
         if(player.axis.y + player.height <= platform.axis.y && player.axis.y + player.height + player.velocity.y >= platform.axis.y && player.axis.x + player.width >= platform.axis.x && player.axis.x <= platform.axis.x + platform.width){
     player.velocity.y = 0
 }
-}
+    })}
+
     fallAnimation()
 
 
@@ -122,7 +137,7 @@ addEventListener(`keydown`,({ keyCode }) =>{
         break;
         case 87:
             console.log(`up`)
-            player.velocity.y -= 15
+            player.velocity.y -= 10
         break;
         case 83:
             console.log(`down`)
