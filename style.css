@@ -25,6 +25,9 @@ justify-content: center;
 
 }
 
+#player{
+    background-image: url('');
+}
 
 #restart,#start{
 background-color:#5757eb;
