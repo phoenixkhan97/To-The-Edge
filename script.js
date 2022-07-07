@@ -1,8 +1,24 @@
+<<<<<<< HEAD
 const canvas = document.getElementById("canvas")
 const c = canvas.getContext(`2d`)
 canvas.height = innerHeight
 canvas.width = innerWidth
 const gravity = 0.4 
+=======
+
+
+const canvas = document.getElementById("canvas")
+const restartGame = document.getElementById("restart")
+const c = canvas.getContext(`2d`)
+import wizard from '/pics/steven2.png'
+canvas.height = 600
+canvas.width = 1024
+const gravity = 0.4
+
+// preload = () =>{
+// this.load.image(`ground`, link.png)
+// }
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
 
 
 
@@ -21,18 +37,32 @@ class Wizard{
             x:50,
             y:200
         }
+<<<<<<< HEAD
         this.width =40
+=======
+        this.width = 40
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
         this.height = 40
 
         this.velocity = {
             x:0,
             y:0
         }
+<<<<<<< HEAD
         this.image = wizardImage
     }
 
     draw(){
         c.drawImage(wizardImage,this.axis.x,this.axis.y,this.width,this.height)
+=======
+        this.image = createImage(wizard)
+       
+    }
+
+    draw(){
+        c.drawImage(this.image, this.axis.x, this.axis.y)
+        
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
     }
 
     playerChanges(){
@@ -42,6 +72,7 @@ class Wizard{
         if(this.axis.y + this.height + this.velocity.y <= canvas.height)
         this.velocity.y += gravity
 
+<<<<<<< HEAD
     }
 }
 
@@ -68,6 +99,12 @@ const platforms =[
 new Platform({x:800,y:325,tallImage})]
 
 
+=======
+    
+    }
+}
+
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
 const player = new Wizard();
 const movement = {
     right: {
@@ -76,7 +113,34 @@ const movement = {
     left:{
         pressed:false
     }
+<<<<<<< HEAD
 } 
+=======
+}
+
+class Platform{
+    constructor({x,y}){
+        this.axis = {
+            x,
+            y
+        }
+        //this.image = image
+        this.width = 500,//image.width
+        this.height = 50//image.height
+    }
+    draw(){
+        c.fillStyle = `black`
+        c.fillRect(this.axis.x, this.axis.y, this.width, this.height)
+    }
+}
+
+const platforms =[
+    new Platform({x:0,y:550}),
+    new Platform({x:500,y:550}),
+    new Platform({x:1600,y:550}),
+    new Platform({x:1500,y:550})]
+    
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
 
 
 fallAnimation = () => {
@@ -88,45 +152,66 @@ fallAnimation = () => {
     player.playerChanges()
 
 
-let scroll = 0
-
-
     if(movement.right.pressed && player.axis.x <500){
+<<<<<<< HEAD
         player.velocity.x = 4
     }else if((movement.left.pressed && player.axis.x > 10)||(movement.left.pressed && player.axis.x < 0)){
         player.velocity.x = -4
+=======
+        player.velocity.x = 5
+    }else if(movement.left.pressed && player.axis.x > 50){
+        player.velocity.x = -5
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
     }
     else
     player.velocity.x = 0
 
     if(movement.right.pressed){
-        scroll += 4
+        scroll += 5
         platforms.forEach(platform =>{
+<<<<<<< HEAD
         platform.axis.x -= 4
         })}else if (movement.left.pressed && scroll > 0){
+=======
+        platform.axis.x -= 5
+        })}else if (movement.left.pressed){
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
         scroll = -4
         platforms.forEach(platform =>{
-        platform.axis.x += 4
+        platform.axis.x += 5
     }
     )}
     
 
+<<<<<<< HEAD
     if(scroll > 2000){
         console.log(`you win`)
     }
   
+=======
+    if(player.axis.x >= 2000){
+        console.log(`you win`)}
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
     
-
-
-    //how cell lands on platform. Not my work
+        if(player.axis.y > canvas.height){
+            console.log(`you lose`)
+        }
+    
+    //how cell lands on platform. Not my work. Credit in md
     platforms.forEach(platform =>{
         if(player.axis.y + player.height <= platform.axis.y && player.axis.y + player.height + player.velocity.y >= platform.axis.y && player.axis.x + player.width >= platform.axis.x && player.axis.x <= platform.axis.x + platform.width){
     player.velocity.y = 0
 }
+<<<<<<< HEAD
 
 
     })}
+=======
+    })
+}
+>>>>>>> ced040fae6881bb65c345156fb5f72313df373f5
 
+    
     fallAnimation()
     
 
@@ -175,6 +260,7 @@ addEventListener(`keyup`,({ keyCode }) =>{
         break;
     }
 })
+
 
 
 
