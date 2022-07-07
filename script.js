@@ -4,7 +4,7 @@ const canvas = document.getElementById("canvas")
 const c = canvas.getContext(`2d`)
 canvas.height = innerHeight
 canvas.width = innerWidth
-const gravity = 0.5
+const gravity = 0.4
 
 // preload = () =>{
 // this.load.image(`ground`, link.png)
@@ -85,13 +85,21 @@ fallAnimation = () => {
     player.playerChanges()
     platform.draw()
 
-    if(movement.right.pressed){
+
+
+    if(movement.right.pressed && player.axis.x <500){
         player.velocity.x = 4
-    }else if(movement.left.pressed){
+    }else if(movement.left.pressed && player.axis.x > 50){
         player.velocity.x = -4
     }
     else
     player.velocity.x = 0
+
+    if(movement.right.pressed){
+        platform.axis.x -= 4
+    }else if (movement.left.pressed){
+        platform.axis.x += 4
+    }
 
 
     //how cell lands on platform. Not my work
@@ -109,7 +117,7 @@ addEventListener(`keydown`,({ keyCode }) =>{
     switch(keyCode){
         case 65:
             console.log(`left`)
-            player.velocity.x = -4
+            player.velocity.x = 0
             movement.left.pressed = true
         break;
         case 87:
@@ -122,7 +130,7 @@ addEventListener(`keydown`,({ keyCode }) =>{
         case 68:
             console.log(`right`)
             movement.right.pressed = true
-            player.velocity.x = 4
+            player.velocity.x = 0
         break;
     }
 })

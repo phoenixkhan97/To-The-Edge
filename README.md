@@ -38,3 +38,5 @@ https://www.youtube.com/watch?v=4q2vvZn5aoo&t=1090s <You can use addEventListene
 
 #### Keybord to JS Connection
 https://developer.mozilla.org/en-US/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard
+
+### Art by @amyfromneptune (my wife)
