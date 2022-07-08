@@ -80,7 +80,7 @@ platforms =[
 new Platform({x:400,y:325,tallImage}),new Platform({x:700,y:425,tileImage}),
 new Platform({x:1000,y:225,tileImage}),new Platform({x:1350,y:125,tileImage}),
 new Platform({x:1700,y:250,tileImage}),new Platform({x:2000,y:450,tileImage}),
-new Platform({x:2150,y:450,tileImage}),new Platform({x:2300,y:450,tileImage}),new Platform({x:2450,y:450,tileImage}),new Platform({x:26000,y:450,tileImage}),] 
+new Platform({x:2150,y:450,tileImage}),new Platform({x:2300,y:450,tileImage}),new Platform({x:2450,y:450,tileImage}),new Platform({x:2600,y:450,tileImage}),] 
 
 
 player = new Wizard();
@@ -129,6 +129,7 @@ fallAnimation = () => {
         if(player.axis.y + player.height <= platform.axis.y && player.axis.y + player.height + player.velocity.y >= platform.axis.y && player.axis.x + player.width >= platform.axis.x && player.axis.x <= platform.axis.x + platform.width){
     player.velocity.y = 0
 }
+
 
 
     })}

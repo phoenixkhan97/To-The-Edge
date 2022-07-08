@@ -29,24 +29,3 @@ justify-content: center;
     background-image: url('');
 }
 
-#restart,#start{
-background-color:#5757eb;
-color:aqua;
-justify-content: center;
-align-items:center;
-margin:auto;
-display:flex;
-border-radius:30%;
-border: white solid 2px;
-
-
-
-}
-
-#restart{
-padding:15px 35px;
-}
-
-#start{
-padding:15px 25px;
-}
